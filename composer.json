@@ -1,0 +1,17 @@
+{
+    "name": "stickee/larastan-config",
+    "description": "stickee's Larastan config",
+    "require": {
+        "php": "^7.4|^8.1",
+        "ekino/phpstan-banned-code": "^1.0",
+        "nunomaduro/larastan": "^1.0",
+        "phpstan/phpstan-mockery": "^1.1"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Paul",
+            "email": "paul.tibbetts@stickee.co.uk"
+        }
+    ]
+}

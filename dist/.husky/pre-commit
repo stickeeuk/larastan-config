@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+tools/phpstan/vendor/bin/phpstan analyse -c phpstan.dist.neon
