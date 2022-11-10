@@ -26,7 +26,7 @@ jobs:
         id: setup-php
         uses: shivammathur/setup-php@v2
         with:
-          php-version: "7.4"
+          php-version: "8.1"
           extensions: bcmath, gd, gnupg, intl, mbstring, soap, zip
       - name: Install dependencies
         if: steps.changed-php-files.outputs.any_changed == 'true'
