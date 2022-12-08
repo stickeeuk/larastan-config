@@ -8,7 +8,7 @@ It is ran by using the `phpstan` command and so will be referred to as PHPStan f
 
 ## NOTE
 
-**This version of the config will only work for Larastan v1 which is for Laravel versions lower than 9.**
+**This version of the config will only work for Larastan v2 which is for Laravel version 9.**
 
 ## Installation
 
