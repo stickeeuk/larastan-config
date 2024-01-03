@@ -1,6 +1,6 @@
 # stickee Larastan config
 
-Provides a [Larastan](https://github.com/nunomaduro/larastan) config for stickee projects.
+Provides a [Larastan](https://github.com/larastan/larastan) config for stickee projects.
 
 Larastan is a [PHPStan](https://phpstan.org/) wrapper for Laravel.
 
