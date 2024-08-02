@@ -36,6 +36,7 @@ parameters:
                 type: Expr_FuncCall
                 functions:
                     - dd
+                    - ddd
                     - debug_backtrace
                     - dump
                     - exec
