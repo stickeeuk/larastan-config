@@ -2,6 +2,7 @@ includes:
     - ./tools/phpstan/vendor/larastan/larastan/extension.neon
     - ./tools/phpstan/vendor/ekino/phpstan-banned-code/extension.neon
     - ./tools/phpstan/vendor/phpstan/phpstan-mockery/extension.neon
+    - ./tools/phpstan/vendor/phpstan/phpstan-deprecation-rules/rules.neon
 
 parameters:
     paths:
