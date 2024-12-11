@@ -22,6 +22,10 @@ You must commit this new directory and the `phpstan.dist.neon` config file.
 
 _[Why do we install PHPStan into its own directory?](https://github.com/FriendsOfPHP/PHP-CS-Fixer#installation)_
 
+## Setup
+
+See [the upgrade guide on PHPStan](https://github.com/larastan/larastan/blob/3.x/UPGRADE.md#correct-return-types-for-model-relation-methods) for a Rector rule that should be run before using this config.
+
 ## Usage
 
 ```shell
