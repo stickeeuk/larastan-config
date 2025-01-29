@@ -13,19 +13,16 @@ It is ran by using the `phpstan` command and so will be referred to as PHPStan f
 ## Installation
 
 ```shell
-mkdir -p tools/phpstan
-composer require --working-dir=tools/phpstan stickee/larastan-config
-cp tools/phpstan/vendor/stickee/larastan-config/dist/phpstan.dist.neon phpstan.dist.neon
+composer require --dev stickee/larastan-config
+cp vendor/stickee/larastan-config/dist/phpstan.dist.neon phpstan.dist.neon
 ```
 
-You must commit this new directory and the `phpstan.dist.neon` config file.
-
-_[Why do we install PHPStan into its own directory?](https://github.com/FriendsOfPHP/PHP-CS-Fixer#installation)_
+You must commit the `phpstan.dist.neon` config file.
 
 ## Usage
 
 ```shell
-tools/phpstan/bin/phpstan analyse -c phpstan.dist.neon
+vendor/bin/phpstan analyse -c phpstan.dist.neon
 ```
 
 [You should always analyse the whole project.](https://phpstan.org/blog/why-you-should-always-analyse-whole-project)
@@ -42,7 +39,7 @@ It would be a pain to add PHPStan to your project and have to fix all the existi
 For this reason you can generate a "baseline" with this command:
 
 ```shell
-tools/phpstan/vendor/bin/phpstan analyse -c phpstan.dist.neon --generate-baseline
+vendor/bin/phpstan analyse -c phpstan.dist.neon --generate-baseline
 ```
 
 and commit the new `phpstan-baseline.neon` file.
@@ -58,7 +55,7 @@ You can use PHPStan in combination with [Husky](https://typicode.github.io/husky
 #### Installation
 
 - install [Husky](https://typicode.github.io/husky/#/?id=automatic-recommended) into your project
-- `cp tools/php-cs-fixer/vendor/stickee/php-cs-fixer-config/dist/.husky/pre-commit .husky/pre-commit`
+- `cp vendor/stickee/larastan-config/dist/.husky/pre-commit .husky/pre-commit`
 
 ## CI
 
@@ -87,44 +84,4 @@ In this example you must provide an inline type-hint:
 + /** @var Customer $customer */
   $customer = $request->user();
   $customerService = CustomerService::make($customer->subscriber_id);
-```
-
-### Package conflicts
-
-PHPStan expects to be installed into the root of your project instead of a subdirectory like we're doing here.
-
-Whilst this means there _should_ be less of a chance of a package conflict, if one does happen it can be harder to diagnose.
-
-For instance if you get this error:
-
-```
-PHP Fatal error:  Declaration of Maatwebsite\Excel\Cache\MemoryCache::get($key, $default = null) must be compatible with Psr\SimpleCache\CacheInterface::get(string $key, mixed $default = null): mixed in /home/paul/projects/asda/vendor/maatwebsite/excel/src/Cache/MemoryCache.php on line 62
-
-   Symfony\Component\ErrorHandler\Error\FatalError
-
-  Declaration of Maatwebsite\Excel\Cache\MemoryCache::get($key, $default = null) must be compatible with Psr\SimpleCache\CacheInterface::get(string $key, mixed $default = null): mixed
-
-  at vendor/maatwebsite/excel/src/Cache/MemoryCache.php:62
-     58▕
-     59▕     /**
-     60▕      * {@inheritdoc}
-     61▕      */
-  ➜  62▕     public function get($key, $default = null)
-     63▕     {
-     64▕         if ($this->has($key)) {
-     65▕             return $this->cache[$key];
-     66▕         }
-```
-
-then you can fix it by [forcing `psr/simple-cache` to version 2](https://github.com/SpartnerNL/Laravel-Excel/issues/3758#issuecomment-1276743482).
-
-_However_ you need to do this inside of `tools/phpstan/composer.json` instead of the composer file in the root of your project:
-
-```json
-{
-    "require": {
-        "psr/simple-cache": "^2.0",
-        "stickee/larastan-config": "^1.0"
-    }
-}
 ```
