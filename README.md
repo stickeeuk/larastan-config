@@ -13,19 +13,16 @@ It is ran by using the `phpstan` command and so will be referred to as PHPStan f
 ## Installation
 
 ```shell
-mkdir -p tools/phpstan
-composer require --working-dir=tools/phpstan stickee/larastan-config
-cp tools/phpstan/vendor/stickee/larastan-config/dist/phpstan.dist.neon phpstan.dist.neon
+composer require --dev stickee/larastan-config
+cp vendor/stickee/larastan-config/dist/phpstan.dist.neon phpstan.dist.neon
 ```
 
-You must commit this new directory and the `phpstan.dist.neon` config file.
-
-_[Why do we install PHPStan into its own directory?](https://github.com/FriendsOfPHP/PHP-CS-Fixer#installation)_
+You must commit the `phpstan.dist.neon` config file.
 
 ## Usage
 
 ```shell
-tools/phpstan/bin/phpstan analyse -c phpstan.dist.neon
+bin/phpstan analyse -c phpstan.dist.neon
 ```
 
 [You should always analyse the whole project.](https://phpstan.org/blog/why-you-should-always-analyse-whole-project)
@@ -42,7 +39,7 @@ It would be a pain to add PHPStan to your project and have to fix all the existi
 For this reason you can generate a "baseline" with this command:
 
 ```shell
-tools/phpstan/vendor/bin/phpstan analyse -c phpstan.dist.neon --generate-baseline
+vendor/bin/phpstan analyse -c phpstan.dist.neon --generate-baseline
 ```
 
 and commit the new `phpstan-baseline.neon` file.
@@ -58,7 +55,7 @@ You can use PHPStan in combination with [Husky](https://typicode.github.io/husky
 #### Installation
 
 - install [Husky](https://typicode.github.io/husky/#/?id=automatic-recommended) into your project
-- `cp tools/php-cs-fixer/vendor/stickee/php-cs-fixer-config/dist/.husky/pre-commit .husky/pre-commit`
+- `cp vendor/stickee/larastan-config/dist/.husky/pre-commit .husky/pre-commit`
 
 ## CI
 
@@ -118,7 +115,7 @@ PHP Fatal error:  Declaration of Maatwebsite\Excel\Cache\MemoryCache::get($key, 
 
 then you can fix it by [forcing `psr/simple-cache` to version 2](https://github.com/SpartnerNL/Laravel-Excel/issues/3758#issuecomment-1276743482).
 
-_However_ you need to do this inside of `tools/phpstan/composer.json` instead of the composer file in the root of your project:
+_However_ you need to do this inside of `composer.json` instead of the composer file in the root of your project:
 
 ```json
 {
