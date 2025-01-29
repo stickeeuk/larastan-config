@@ -27,9 +27,5 @@ jobs:
         run: cp .env.ci .env
       - name: Create key
         run: php artisan key:generate
-      - name: Install PHPStan
-        run: |
-          composer install --working-dir=tools/phpstan
       - name: Run PHPStan
-        run: |
-            tools/phpstan/vendor/bin/phpstan analyse -c phpstan.ci.neon --error-format=github
+        run: vendor/bin/phpstan analyse -c phpstan.ci.neon --error-format=github
