@@ -22,7 +22,7 @@ You must commit the `phpstan.dist.neon` config file.
 ## Usage
 
 ```shell
-bin/phpstan analyse -c phpstan.dist.neon
+vendor/bin/phpstan analyse -c phpstan.dist.neon
 ```
 
 [You should always analyse the whole project.](https://phpstan.org/blog/why-you-should-always-analyse-whole-project)
