@@ -48,15 +48,6 @@ This means PHPStan will ignore any errors in this file so you can use PHPStan to
 
 If you get any free time you can refer to this file for code that should be fixed and regenerate the baseline (with the same command) afterwards.
 
-### Pre-Commit Hook
-
-You can use PHPStan in combination with [Husky](https://typicode.github.io/husky/) to run during the pre-commit stage.
-
-#### Installation
-
-- install [Husky](https://typicode.github.io/husky/#/?id=automatic-recommended) into your project
-- `cp vendor/stickee/larastan-config/dist/.husky/pre-commit .husky/pre-commit`
-
 ## CI
 
 An example GitHub actions workflow is included at `/dist/.github/workflows/phpstan.yaml`.
