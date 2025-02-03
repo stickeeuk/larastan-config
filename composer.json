@@ -2,7 +2,7 @@
     "name": "stickee/larastan-config",
     "description": "stickee's Larastan config",
     "require": {
-        "php": "^8.2",
+        "php": "^8.3",
         "ekino/phpstan-banned-code": "^3.0",
         "larastan/larastan": "^3.0.2",
         "phpstan/phpstan-mockery": "^2.0",
