@@ -15,6 +15,10 @@ cp vendor/stickee/larastan-config/dist/phpstan.dist.neon phpstan.dist.neon
 
 You must commit the `phpstan.dist.neon` config file.
 
+## Setup
+
+See [the upgrade guide on PHPStan](https://github.com/larastan/larastan/blob/3.x/UPGRADE.md#correct-return-types-for-model-relation-methods) for a Rector rule that should be run before using this config.
+
 ## Usage
 
 ```shell
