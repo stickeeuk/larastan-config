@@ -64,15 +64,4 @@ The following are some of the easily fixable problems you may run into using PHP
 
 ### Access to an undefined property
 
-An error such as `Access to an undefined property Illuminate\Database\Eloquent\Model::$subscriber_id` means that PHPStan did not properly understand the class of the variable it read.
-
-If you hover over the variable your editor will probably also not be able to understand what it is.
-
-In this example you must provide an inline type-hint:
-
-```diff
-
-+ /** @var Customer $customer */
-  $customer = $request->user();
-  $customerService = CustomerService::make($customer->subscriber_id);
-```
+There is [a guide on the PHPStan blog](https://phpstan.org/blog/solving-phpstan-access-to-undefined-property) that contains suggestions for fixing this.
